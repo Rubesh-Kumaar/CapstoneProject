@@ -1,142 +1,77 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>JavaScript Vanilla Shopping Cart Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="order1.css">
+    <link rel="stylesheet" href="order.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="order.css">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-    <script href="order.js"></script>
+        crossorigin="anonymous">
+    </script>
+
 </head>
 
 <body>
+    <section>
+        <div class="cart-modal-overlay">
+            <div class="cart-modal">
+                <i id="close-btn" class="fas fa-times"></i>
+                <h1 class="cart-is-empty">Cart is empty</h1>
 
-    <h1>Ordering Cart</h1>
-
-    <div class="shopping-cart">
-
-        <div class="column-labels">
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price" style="color:black ;"><b>Price</b></label>
-            <label class="product-quantity" style="color:black ;"><b>Quantity</b></label>
-            <label class="product-removal" style="color:black ;"><b>Remove</b></label>
-            <label class="product-line-price" style="color:black ;"><b>Total</b></label>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="burger.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Burger</div>
-                <p class="product-description">Get the best, most soul-satisfying burger in Chennai...</p>
-            </div>
-            <div class="product-price">99.99</div>
-            <div class="product-quantity">
-                <input type="number" value="0" min="0">
-            </div>
-            <div class="product-removal">
-                <button class="btn btn-danger remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">25.98</div>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="pizza.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Pizza</div>
-                <p class="product-description">Keep your friends close, and your pizza closer.</p>
-            </div>
-            <div class="product-price">109.99</div>
-            <div class="product-quantity">
-                <input type="number" value="0" min="0">
-            </div>
-            <div class="product-removal">
-                <button class="btn btn-danger remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">45.99</div>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="fchicken.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Fried Chicken</div>
-                <p class="product-description">Eat your chicken just how you like it.</p>
-            </div>
-            <div class="product-price">89.99</div>
-            <div class="product-quantity">
-                <input type="number" value="0" min="0">
-            </div>
-            <div class="product-removal">
-                <button class="btn btn-danger remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">89.99</div>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="juice.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title">Shake's</div>
-                <p class="product-description">An icy concoction full of sweetness and love...</p>
-            </div>
-            <div class="product-price">44.99</div>
-            <div class="product-quantity">
-                <input type="number" value="0" min="0">
-            </div>
-            <div class="product-removal">
-                <button class="btn btn-danger remove-product">
-                    Remove
-                </button>
-            </div>
-            <div class="product-line-price">44.99</div>
-        </div>
-
-        <div class="totals">
-            <div class="totals-item">
-                <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">js</div>
-            </div>
-            <div class="totals-item">
-                <label>Tax (5%)</label>
-                <div class="totals-value" id="cart-tax">js</div>
-            </div>
-            <div class="totals-item">
-                <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">js</div>
-            </div>
-            <div class="totals-item">
-                <label>Coupen</label>
-                <input class="coupen" type="text" placeholder="Apply Coupen Here">
-            </div>
-            <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">js</div>
+                <div class="product-rows">
+                </div>
+                <div class="total">
+                    <h1 class="cart-total">TOTAL</h1>
+                    <span class="total-price">$0</span>
+                    <button class="purchase-btn" href="payment.html">Payment</button>
+                </div>
             </div>
         </div>
 
-        <button class="btn btn-outline-success btn-lg check"><a class="checka" href="payment.html">Checkout</a></button>
+        <div class="cart-btn">
+            <i id="cart" class="fas fa-shopping-cart"></i>
+            <span class="cart-quantity">0</span>
+        </div>
 
-    </div>
-    <script href="order.js"></script>
+        <!--  products  -->
+        <div class="items-container">
+            <div class="card-1 card">
+                <img class="product-image" src="burger.jpg" alt="">
+                <p class="text-danger">Burger</p>
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$100</span>
+            </div>
+            <div class="card-2 card">
+                <img class="product-image" src="pizza.jpg" alt="">
+                <p class="text-danger">Pizza</p>
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$200</span>
+            </div>
+            <div class="card-3 card">
+                <img class="product-image" src="fchicken.jpg" alt="">
+                <p class="text-danger">Fried Chicken</p>
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$100</span>
+            </div>
+            <div class="card-4 card">
+                <img class="product-image" src="juice.jpg" alt="">
+                <p class="text-danger">Juice</p>
+                <button class="add-to-cart">Add to cart</button>
+                <span class="product-price">$50</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="order.js"></script>
 </body>
 
 </html>
