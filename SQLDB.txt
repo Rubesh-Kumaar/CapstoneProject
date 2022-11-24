@@ -1,0 +1,87 @@
+BATCH-3
+ONLINE FOOD DELIVERY
+--------------------------
+
+Admin Table:
+
+Create table Admin(
+AId int not null primary key,
+Aname varchar(20) not null,
+Aemial varchar(20) not null,
+Password varchar(20) not null,
+AMobile int not null unique,
+);
+
+
+Customer Table:
+
+Create table Customer(
+Cid int not null primary key ,
+CFname varchar(20) not null ,
+CLname varchar(20) not null,
+CEmail varchar(30) not null unique,
+CMobile int not null unique,
+Location varchar(20) not null ,
+Password varchar(20) not null,
+Cpassword varchar(20) not null
+);
+
+
+Menu or Product Table:
+
+Create table Menu (
+Fid int not null primary key,
+Fname varchar(20) not null,
+Price int not null
+);
+
+
+Cart Table:
+
+Create table Cart(
+Kid int primary key not null,
+Fid int foregin key references Menu(Fid)
+FQuantity int not null,
+Price double,
+Coupen varchar(10) unique
+);
+
+
+Order Table:
+
+Create table Order(
+Oid int not null primary key,
+Fid int foregin key references Menu(Fid),
+TBill int not null,
+);
+
+
+Payment Table:
+
+Create table Payment(
+PCardName varchar(20) not null;
+Pnum int not null primary key,
+Pcvv int not null
+);
+
+
+Event Table:
+
+Create table Event(
+Eid int not null primary key;
+ESdate date not null,
+EEdate date not null
+);
+
+
+Event_cat Table:
+
+
+Coupon Table:
+
+Create table Coupon(
+CoId not null primary key;
+CoName varchar(20) not null unique,
+CoDiscount double not null
+);
+
