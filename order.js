@@ -114,12 +114,37 @@ function updateCartPrice() {
     var price = parseFloat(priceElement.innerText.replace('$', ''))
     var quantity = quantityElement.value
     total = total + (price * quantity)
-
+    validate();
   }
   document.getElementsByClassName('total-price')[0].innerText = '$' + total
-
   document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
 }
+
+
+//coupen validation
+
+function validate(coupon) {
+  var myRe = "LUCKY25";
+  const myRe1 = "BFF15";
+  const coupon1 = myRe1.trim();
+  var coupon = myRe.trim();
+  var input = document.getElementById('in').value;
+  if (input.toUpperCase() == coupon.toUpperCase()) {
+    document.getElementById('message').innerHTML = `Coupon Code ${myRe}, Applied Successfully`;
+    document.getElementById('err').innerHTML = "" ;
+    return true;
+  } else if(input.toUpperCase() == coupon1.toUpperCase()){
+    document.getElementById('message').innerHTML = `Coupon Code ${myRe1}, Applied Successfully`;
+    document.getElementById('err').innerHTML = "";
+    return true;
+  } else {
+    document.getElementById('err').innerHTML = "Invalid coupon";
+    document.getElementById('message').innerHTML = "";
+    return false; 
+  }
+}
+
+
 
 
 // purchase items
