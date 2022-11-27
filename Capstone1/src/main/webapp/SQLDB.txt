@@ -1,0 +1,107 @@
+BATCH-3
+ONLINE FOOD DELIVERY
+--------------------------
+
+Admin Table: (1)
+
+Create table Admin(
+Aid int not null primary key,
+Aname varchar(20) not null,
+Aemial varchar(20) not null,
+Password varchar(20) not null,
+AMobile int not null unique,
+);
+
+
+Registration Table: (10)
+
+Create table Registration(
+Rid int not null primary key ,
+RFname varchar(20) not null ,
+RLname varchar(20) not null,
+REmail varchar(30) not null unique,
+RMobile int not null unique,
+Location varchar(20) not null ,
+Password varchar(20) not null,
+Cpassword varchar(20) not null
+);
+
+
+User Table: (100)
+
+Create table User(
+Uid int notnull primary key,
+Rid int foregin key references Registration(Rid),
+Aid int foregin key references Admin(Aid),
+);
+
+
+Menu or Product Table: (200)
+
+Create table Menu (
+Fid int not null primary key,
+Fname varchar(20) not null,
+Price int not null
+);
+
+
+Cart Table:
+
+Create table Cart(
+Kid int primary key not null,
+Fid int foregin key references Menu(Fid),
+FQuantity int not null
+);
+
+
+Order Table:
+
+Create table Order(
+Oid int not null primary key,
+Fid int foregin key references Menu(Fid),
+CoId int foregin key references Coupon(CoId),
+TBill double not null,
+);
+
+
+Payment Table:
+
+Create table Payment(
+PCardName varchar(20) not null,
+Uid int foregin key references User(Uid),
+Pnum int not null primary key,
+Pexmonth date nou null,
+Pexyear year not null,
+Pcvv int not null
+);
+
+
+Event Table:
+
+Create table Event(
+Eid int not null primary key,
+CoId int foregin key references Coupon(CoId),
+Ename varchar(20) not null,
+ESdate date not null,
+EEdate date not null
+);
+
+
+Product_cat Table:
+
+Create table Product_cat(
+PrId int not null primary key,
+PrName varchar(20) not null unique,
+Fid int foregin key references Menu(Fid),
+PrQuantity int not null,
+HotelName varchar(20) notnull
+);
+
+
+Coupon Table: (1000)
+
+Create table Coupon(
+CoId int not null primary key,
+CoName varchar(20) not null unique,
+CoDiscount double not null
+);
