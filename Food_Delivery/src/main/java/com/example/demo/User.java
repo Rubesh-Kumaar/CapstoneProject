@@ -3,7 +3,7 @@ package com.example.demo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "food_delivery")
+@Table(name = "registeration")
 public class User {
 
 @Id
@@ -19,7 +19,7 @@ private String RLname;
 @Column(nullable = false, unique = true, length = 45)
 private String REmail;
 
-@Column(nullable = false, length = 20)
+@Column(nullable = false, unique = true,length = 20)
 private String RMobile;
 
 @Column(name = "Location", nullable = false, length = 20)
