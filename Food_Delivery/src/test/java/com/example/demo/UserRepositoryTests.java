@@ -15,10 +15,10 @@ import org.springframework.test.annotation.Rollback;
 public class UserRepositoryTests {
 
 	@Autowired
-	private TestEntityManager entityManager;
-
-	@Autowired
 	private UserRepository repo;
+	
+	@Autowired
+	private TestEntityManager entityManager;
 	
 	@Test
 	public void testCreateUser() 
@@ -26,12 +26,12 @@ public class UserRepositoryTests {
 		
 		User user = new User();
 		
-		user.setRFname("Rubesh");
+		user.setRFname("prathap");
 		user.setRLname("Kumar");
-		user.setREmail("rubeshkumar@gmail.com");
-		user.setRMobile("1234567890");
+		user.setREmail("prathap@gmail.com");
+		user.setRMobile("1004567890");
 		user.setLocation("Chennai");
-		user.setPassword("rubesh123");
+		user.setPassword("prathap123");
 		
 		
 		
@@ -39,7 +39,7 @@ public class UserRepositoryTests {
 		
 		User existUser = entityManager.find(User.class, savedUser.getId());
 		
-		assertThat(user.getREmail()).isEqualTo(existUser.getREmail());
+		assertThat(existUser.getREmail()).isEqualTo(user.getREmail());
 		}
 	
 }
