@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.Nav-bar{
+  background-color: darkgray;
+  padding: 1%;
+}
+
 img {
   max-width: 100%;
   display: block;

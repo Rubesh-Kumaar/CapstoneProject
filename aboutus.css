@@ -3,14 +3,19 @@
 }
 
 body {
-    margin: 10%;
     color: black;
-    padding-top: 10%;
     background-image: url("siimage.jpg");
     background-size: cover;
     background-position: center;
 }   
 
+.Nav-bar{
+    margin-bottom: 5%;
+    background-color: whitesmoke;
+    padding: 0%;
+    padding-bottom: 1%;
+    margin-top: 0%;
+}
 
 .card{
     border-radius: 20px;
